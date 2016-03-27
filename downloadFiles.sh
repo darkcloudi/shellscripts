@@ -1,10 +1,11 @@
 #! /bin/sh -p
 
+#SCRIPT NOT TESTED JUST HACKED SOME PSEUDOCODE
+
 #dependency scripts that need to exist under the same directory (It will allow you to access the shared functions that do not exist as part of this script)
 . setEnv.sh
 . deployComponents.sh
 
-#NOT TESTED
 
 readonly USER=`whoami`
 readonly USER_HOME=`echo ~`
@@ -36,8 +37,11 @@ readonly files=($FILE1 $FILE2 FILE3)
 
 
 function validateDirectories { 
-if [[ ! -d $(DATA_DIR) 11 then echo "${DATA_DIR) does not exist, creating.. • ." mkdir -P $(DATA_DIR) 
-fi 
+if [[ ! -d ${DATA_DIR} ]]
+ then echo "${DATA_DIR) does not exist, creating..." 
+  mkdir -p ${DATA_DIR} 
+fi
+} 
 
 function cleanupFiles { 
   if [[ -d $(DATA_DIR1 ]]; then 
